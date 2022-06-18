@@ -123,7 +123,7 @@ c = ''.join(tml)
 
 
 
-with open(indiafilegiventxt, 'a') as tfile:
+with open(indiafilegiventxt, 'w') as tfile:
    
     tfile.write(c)
 

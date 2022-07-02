@@ -20,7 +20,7 @@ GCP Contact     : gcpguild@gmail.com
 Date            : June 8 2022.
 Contributors    : 42 key members from GCP Guild.
 Revised         : Google Cloud Projects, Hyper Scaler, Kyndryl
-Date            : 02 July 2022.
+Date            : July 02 2022.
 
 """
 from pathlib import Path

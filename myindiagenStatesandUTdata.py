@@ -19,6 +19,9 @@ Email           : ramamurthy.valavandan@kyndryl.com
 GCP Contact     : gcpguild@gmail.com
 Date            : June 8 2022.
 Contributors    : 42 key members from GCP Guild.
+Revised         : Google Cloud Projects, Hyper Scaler, Kyndryl
+Date            : 02 July 2022.
+
 """
 from pathlib import Path
 
@@ -35,18 +38,27 @@ from pathlib import Path
 
 
 basepath = "C:"
-codepath="python"
-function = "indias"
+codepath="google"
+function = "serpapi"
 N="\\"
-namefile = "india"
+namefile = "indias"
+max_gs = 10 # maximum number of google search in href or urls
+#-----------------------------------------------------
+indiatempledatadir = ("{}{}{}{}{}{}{}{}{}".format(basepath,N,codepath,N,function,N,namefile,N,"data"))
+
+datadirgoo = ("{}{}{}".format(namefile.capitalize(),"_","googlengine_temple_States_and_UTs"))
+
+googledataindiastutdir = ("{}{}{}".format(indiatempledatadir,N,datadirgoo))
+
+cre_directory = Path(googledataindiastutdir)
+cre_directory.mkdir(parents=True, exist_ok=True)
+
+indiastautfile = ("{}{}{}".format(googledataindiastutdir,N,"Ind_googlengine_states_ut_master.csv"))
+#-----------------------------------------------------
 
 searchpg = "https://www.googlengine.com/ind"
 
 gourl = re.sub(r'^.+/([^/]+)$', r'\1', searchpg)
-
-indiatempledatadir = ("{}{}{}{}{}{}{}{}".format(basepath,N,codepath,N,function,N,"data",N))
-
-indiastautfile = ("{}{}_{}".format(indiatempledatadir,gourl.capitalize(),"googlengine_states_ut_master.csv"))
 
 
 def prt(p):
@@ -105,7 +117,6 @@ def googlenginein(sek):
         gencsv = pd.DataFrame(templeslist,  columns= colheader )
         gencsv.to_csv(indiastautfile, index=False, na_rep='Unknown')
 
-
 path = Path(indiastautfile)
 
 if path.is_file():
@@ -118,4 +129,3 @@ else:
     p = ("{} {}".format(pi,indiastautfile))
     prt(p)
     googlenginein(sek='go')
-    
